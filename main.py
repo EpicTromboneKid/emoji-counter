@@ -42,7 +42,7 @@ def generate_top_25_embed(guild_id, guild_name):
     embed = discord.Embed(title=f"{guild_name}'s top emojis", color=0x985f50)
     n = 1
     for emoji_char, count in counter.most_common(25):
-        embed.add_field(name=f"#{n}", value=f"<:rizz:{emoji_char}:>: {count}", inline=False)
+        embed.add_field(name=f"#{n}", value=f"<:rizz:{emoji_char}>: {count}", inline=False)
         total += count
         n += 1
     embed.set_footer(text=f"total emojis counted: {total}")
@@ -90,7 +90,7 @@ async def hello(ctx):
 async def on_reaction_add(reaction, user):
     if user == bot.user:
         return
-    update_counter(str(reaction.message.guild.id), str(reaction.emoji))
+    update_counter(str(reaction.message.guild.id), str(reaction.emoji.id))
 
 @bot.event
 async def on_message(message):
