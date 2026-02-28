@@ -1,0 +1,7 @@
+hi.txt
+pyvenv.cfg
+storage.json
+bin/*
+lib/*
+include/*
+lib64
