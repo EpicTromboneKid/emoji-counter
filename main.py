@@ -6,6 +6,8 @@ import emoji
 import collections
 import json
 import os
+import random
+from lines import flirts
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -78,8 +80,9 @@ async def t25(ctx):
 @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
 @app_commands.allowed_installs(guilds=True, users=True)
 async def hello(interaction: discord.Interaction):
+    response = random.choice(flirts)
     try:
-        await interaction.channel.send('heyyyyyyyyyyyy :smiling_face_with_3_hearts: :kissing_heart: :heart:')
+        await interaction.channel.send()
         await interaction.response.defer(ephemeral=True)
         await interaction.followup.send("\u200b", ephemeral=True)
     except:
@@ -95,7 +98,7 @@ async def on_reaction_add(reaction, user):
     if user == bot.user:
         return
     try:
-    	update_counter(str(reaction.message.guild.id), str(reaction.emoji.id))
+        update_counter(str(reaction.message.guild.id), str(reaction.emoji.id))
     except:
         update_counter(str(reaction.message.guild.id), str(reaction.emoji))
 
