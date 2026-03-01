@@ -90,7 +90,8 @@ async def hello(interaction: discord.Interaction):
     
 @bot.command(name="hello")
 async def hello(ctx):
-    await ctx.send('heyyyyyyyyyyyy :smiling_face_with_3_hearts: :kissing_heart: :heart:')
+    response = random.choice(flirts)
+    await ctx.send(response)
 
 @bot.event
 async def on_reaction_add(reaction, user):
