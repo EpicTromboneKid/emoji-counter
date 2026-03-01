@@ -81,11 +81,11 @@ async def t25(ctx):
 async def hello(interaction: discord.Interaction):
     response = random.choice(flirts)
     try:
-        await interaction.channel.send()
+        await interaction.channel.send(response)
         await interaction.response.defer(ephemeral=True)
         await interaction.followup.send("\u200b", ephemeral=True)
     except:
-        await interaction.response.send_message('heyyyyyyyyyyyy :smiling_face_with_3_hearts: :kissing_heart: :heart:')
+        await interaction.response.send_message(response)
     
     
 @bot.command(name="hello")
