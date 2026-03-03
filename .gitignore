@@ -1,6 +1,6 @@
 hi.txt
 pyvenv.cfg
-storage.json
+*.json
 bin/*
 lib/*
 include/*
