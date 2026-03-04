@@ -95,9 +95,9 @@ async def top25(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
     embed = generate_top_25_embed(str(interaction.guild.id), interaction.guild.name)
     if embed:
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
     else:
-        await interaction.response.send_message("No emojis tracked yet!")
+        await interaction.followup.send("No emojis tracked yet!")
 
 @bot.command(name="t")
 async def t25(ctx):
