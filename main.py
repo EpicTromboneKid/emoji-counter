@@ -92,6 +92,7 @@ async def on_ready():
 
 @bot.tree.command(name="top", description="Shows the top 25 emojis in this server")
 async def top25(interaction: discord.Interaction):
+    await interaction.response.defer(ephemeral=True)
     embed = generate_top_25_embed(str(interaction.guild.id), interaction.guild.name)
     if embed:
         await interaction.response.send_message(embed=embed)
